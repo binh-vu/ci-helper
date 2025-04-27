@@ -19,5 +19,10 @@ build_docker_image() {
     docker build -t "$image_name:$DATE" .
 }
 
-# Example usage
-build_docker_image manylinux_2_34_aarch64
+PLATFORM=$(uname -m)
+if [[ "$PLATFORM" == "arm64" ]]; then
+    PLATFORM="aarch64"
+fi
+echo "Detected platform: $PLATFORM"
+
+build_docker_image manylinux_2_34_$PLATFORM
