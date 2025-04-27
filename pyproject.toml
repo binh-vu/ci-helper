@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python-template"
+name = "cihelper"
 version = "1.0.0"
-description = "Python Template"
+description = "CI Helper Tool"
 authors = ["Binh Vu <bvu687@gmail.com>"]
 readme = "README.md"
 
