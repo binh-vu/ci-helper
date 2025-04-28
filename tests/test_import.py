@@ -5,12 +5,12 @@ from pathlib import Path
 
 def test_import(ignore_deprecated: bool = True):
     pkg = [
-        path
+        path.parent
         for path in Path(__file__).parent.parent.glob("*/__init__.py")
         if path.parent.name != "tests"
     ][0]
 
-    stack = [(pkg.__name__, pkg.absolute())]
+    stack = [(pkg.name, pkg.absolute())]
 
     while len(stack) > 0:
         pkgname, pkgpath = stack.pop()
@@ -20,6 +20,4 @@ def test_import(ignore_deprecated: bool = True):
                 continue
             if m.ispkg:
                 stack.append((mname, pkgpath / m.name))
-            import_module(mname)
-            import_module(mname)
             import_module(mname)
