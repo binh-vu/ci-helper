@@ -1,9 +1,9 @@
 ARG PLATFORM=aarch64
-FROM quay.io/pypa/manylinux_2_34_${PLATFORM}:2025.04.26-0
+
+FROM quay.io/pypa/manylinux_2_34_${PLATFORM}:2025.09.28-1
 
 # Install LLVM and Clang
-RUN dnf clean all && dnf update
-RUN dnf install llvm llvm-devel clang clang-devel lld lldb -y
+RUN yum install -y llvm-toolset
 
 # Install Rust
 RUN curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable && \

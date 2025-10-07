@@ -1,6 +1,10 @@
 name: ci
 
 services:
+  manylinux_2_34_x86_64:
+    image: toan2/manylinux_2_34_x86_64:202504
+    build:
+      context: ./containers/manylinux_2_34_x86_64/
   manylinux_2_34_aarch64:
     image: toan2/manylinux_2_34_aarch64:202504
     build:
