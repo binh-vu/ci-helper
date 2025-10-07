@@ -21,7 +21,7 @@ build_docker_image() {
     fi
 
     cd $SCRIPT_DIR/containers/$folder
-    docker build --build-arg PLATFORM=$PLATFORM -t "$image_name:$DATE" .
+    docker build --build-arg PLATFORM=$PLATFORM -t "$image_name" .
 }
 
 build_docker_image manylinux_2_34
