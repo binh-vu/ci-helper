@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Annotated, Optional
 
@@ -106,7 +107,10 @@ def main(
     else:
         raise ValueError(f"Unknown template: {template}")
 
-    pkgdir = find_package_by_name(target, cwd)
+    if os.path.exists(target):
+        pkgdir = Path(target)
+    else:
+        pkgdir = find_package_by_name(target, cwd)
     cifile = pkgdir / ".github" / "workflows" / f"{template}.yml"
     typer.echo(f"Writing CI file to {cifile}")
     cifile.parent.mkdir(parents=True, exist_ok=True)

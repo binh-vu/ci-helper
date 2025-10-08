@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "cihelper"
-version = "1.0.0"
+version = "1.0.1"
 description = "CI Helper Tool"
 authors = ["Binh Vu <bvu687@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+typer = "^0.19.2"
+packaging = "^25.0"
 
 
 [build-system]
